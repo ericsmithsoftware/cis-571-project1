@@ -1,6 +1,6 @@
 package com.ericss.project1.api;
 
-import com.ericss.project1.model.booksinfos.GetBooksInfosByTitlesResponse;
+import com.ericss.project1.soap.GetBooksInfosByTitlesResponse;
 import com.ericss.project1.service.BookInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
@@ -13,7 +13,7 @@ import java.util.List;
 @Endpoint
 public class BookInfosEndpoint {
 
-    private static final String NAMESPACE_URI = "http://project1.ericss.com/soap/gen";
+    private static final String NAMESPACE_URI = "http://project1.ericss.com/soap";
 
     private BookInfoService bookInfoService;
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://project1.ericss.com/soap/gen"
-           xmlns:bk="http://project1.ericss.com/soap/gen">
+           targetNamespace="http://project1.ericss.com/soap"
+           xmlns:bk="http://project1.ericss.com/soap">
    <xs:element name="getBooksInfosByTitlesRequest" type="bk:titleList"/>
    <xs:complexType name="titleList">
         <xs:sequence maxOccurs="unbounded">
