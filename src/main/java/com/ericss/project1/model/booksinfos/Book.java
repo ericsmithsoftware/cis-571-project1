@@ -6,7 +6,7 @@
 //
 
 
-package com.ericss.cis571project1.model.booksinfos;
+package com.ericss.project1.model.booksinfos;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,19 +1,12 @@
-package com.ericss.cis571project1.invoker;
+package com.ericss.project1.invoker;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import static com.ericss.cis571project1.constants.ServiceConstants.API_KEY;
+import static com.ericss.project1.constants.ServiceConstants.API_KEY;
 
 @Component
 public class NewYorkTimesInvoker {

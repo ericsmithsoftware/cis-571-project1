@@ -6,4 +6,4 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "http://cis571project1.ericss.com/model/booksInfos")
-package com.ericss.cis571project1.model.booksinfos;
+package com.ericss.project1.model.booksinfos;

@@ -1,4 +1,4 @@
-package com.ericss.cis571project1.invoker;
+package com.ericss.project1.invoker;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -8,8 +8,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.ericss.cis571project1.constants.ServiceConstants.KEY;
-import static com.ericss.cis571project1.constants.ServiceConstants.TITLE;
+import static com.ericss.project1.constants.ServiceConstants.KEY;
+import static com.ericss.project1.constants.ServiceConstants.TITLE;
 
 @Component
 public class GoodreadsInvoker {

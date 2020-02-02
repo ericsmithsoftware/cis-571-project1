@@ -1,6 +1,6 @@
-package com.ericss.cis571project1.service;
+package com.ericss.project1.service;
 
-import com.ericss.cis571project1.invoker.NewYorkTimesInvoker;
+import com.ericss.project1.invoker.NewYorkTimesInvoker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;

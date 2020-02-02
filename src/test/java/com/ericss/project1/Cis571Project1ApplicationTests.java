@@ -1,4 +1,4 @@
-package com.ericss.cis571project1;
+package com.ericss.project1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

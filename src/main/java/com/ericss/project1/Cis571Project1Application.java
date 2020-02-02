@@ -1,4 +1,4 @@
-package com.ericss.cis571project1;
+package com.ericss.project1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

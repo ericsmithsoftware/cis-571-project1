@@ -6,7 +6,7 @@
 //
 
 
-package com.ericss.cis571project1.model.booksinfos;
+package com.ericss.project1.model.booksinfos;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

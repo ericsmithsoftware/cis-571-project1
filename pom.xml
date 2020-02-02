@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ericss</groupId>
-	<artifactId>cis-571-project1</artifactId>
+	<artifactId>project1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cis-571-project1</name>
+	<name>project1</name>
 	<description>CIS 571 Project1</description>
 
 	<properties>
