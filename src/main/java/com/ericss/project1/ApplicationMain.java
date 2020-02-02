@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Cis571Project1Application {
+public class ApplicationMain {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Cis571Project1Application.class, args);
+		SpringApplication.run(ApplicationMain.class, args);
 	}
 }
