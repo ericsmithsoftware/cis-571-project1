@@ -26,8 +26,13 @@ public class BookListService {
     }
 
     public List<Book> getBookList(Integer numBooks, List<String> listNames) {
-        List<Book> bookList = new ArrayList<>();
         List<BestSellerList> bestSellerResultLists = populateBestSellerListResults(listNames);
+        numBooks = updateNumBooksIfNotEnough(numBooks, bestSellerResultLists);
+        return createBookListFromResults(numBooks, bestSellerResultLists);
+    }
+
+    private List<Book> createBookListFromResults(Integer numBooks, List<BestSellerList> bestSellerResultLists) {
+        List<Book> bookList = new ArrayList<>();
         int numLists = bestSellerResultLists.size();
         int i = 0;
         int bookIndex = 0;
@@ -41,6 +46,18 @@ public class BookListService {
             }
         }
         return bookList;
+    }
+
+    private Integer updateNumBooksIfNotEnough(Integer numBooks, List<BestSellerList> bestSellerResultLists) {
+        int resultsFound=0;
+        for(BestSellerList list: bestSellerResultLists){
+            resultsFound+= list.getResults().getBooks().size();
+        }
+        LOGGER.debug("Num results: {}" +resultsFound);
+        if(numBooks > resultsFound){
+            numBooks = resultsFound;
+        }
+        return numBooks;
     }
 
     private Book getBook(BestSellerList bestSellerList, int bookIndex) {
