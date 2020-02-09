@@ -1,16 +1,19 @@
 package com.ericss.project1.api;
 
+import com.ericss.project1.exception.InternalErrorException;
+import com.ericss.project1.model.rest.Book;
 import com.ericss.project1.service.BookListService;
+import com.ericss.project1.validator.InputValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@Controller
 public class BookListController {
 
     private BookListService bookListService;
@@ -21,21 +24,18 @@ public class BookListController {
     }
 
     @GetMapping("/books/list")
-    public ResponseEntity<String> getBookList(
+    public String getBookList(
             @RequestParam(name="numBooks", required=true) Integer numBooks,
-            @RequestParam(name="listCategories", required=true) List<String> bestSellerLists,
+            @RequestParam(name="listCategories", required=true) List<String> bestSellerCategories,
             Model model) {
-
-        System.out.println("NumBooks: " + numBooks);
-
-        System.out.println("Best seller lists:");
-        for(String list : bestSellerLists){
-            System.out.println(list);
+        InputValidator.validateInput(numBooks, bestSellerCategories);
+        List<Book> bookList;
+        try{
+            bookList = bookListService.getBookList(numBooks, bestSellerCategories);
+        } catch(Exception e){
+            throw new InternalErrorException(e.getMessage());
         }
-
-        ResponseEntity<String> bestSellerList = bookListService.getBookList(numBooks);
-        model.addAttribute("bestSellerList", bestSellerList);
-        return bestSellerList;
+        model.addAttribute("bookList", bookList);
+        return "bookList";
     }
-
 }

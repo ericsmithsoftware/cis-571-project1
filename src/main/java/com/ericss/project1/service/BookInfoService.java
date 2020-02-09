@@ -1,9 +1,9 @@
 package com.ericss.project1.service;
 
 import com.ericss.project1.invoker.GoodreadsInvoker;
-import com.ericss.project1.soap.Book;
-import com.ericss.project1.soap.GetBooksInfosByTitlesResponse;
-import com.ericss.project1.soap.ObjectFactory;
+import com.ericss.project1.ws.Book;
+import com.ericss.project1.ws.GetBooksInfosByTitlesResponse;
+import com.ericss.project1.ws.ObjectFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -3,14 +3,14 @@
 <head>
     <title>CIS 571 Project 1 - Eric Smith</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link href="../static/css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
 </head>
 <body>
 <h1>Book List Service</h1>
 <form action="/books/list">
     <div class="form-group mb-2">
         <label for="numBooks" class="col-form-label-lg">Please input the number of books:</label>
-        <input type="number" class="form-control-lg" id="numBooks" name="numBooks" value="numBooks" placeholder="Number of Books">
+        <input type="number" class="form-control-lg" id="numBooks" name="numBooks" value="numBooks" placeholder="Default: 10">
         <br/>
         <br/>
         <label class="col-form-label-lg">Please select some categories:</label><br/>
@@ -32,6 +32,21 @@
 
 <br/>
 <h1>Book Info Service</h1>
-<p>Get your BookInfoList <a href="/books/info/list"> here</a></p>
+<!--<form action="/ws/bookInfosList.wsdl" id="bookInfoListForm">
+    <div class="form-group mb-2">
+        <label class="col-form-label-lg">Please a list of book titles (comma separated):</label>
+    </div>
+    <textarea name="bookInfoList" form="bookInfoListForm"></textarea><br/>
+    <button type="submit" class="btn btn-primary mb-2">BookInfoList!</button>
+</form>-->
+
+<form action="/ws/bookInfosList.wsdl/getBooksInfosByTitlesRequest" method="get">
+    <b>WebService WSDL Address : </b>
+    <a href="/ws/bookInfosList.wsdl">/ws/bookInfosList.wsdl</a>
+    <br/><br/>
+    <input type="text" name="bookInfoList" class="form-control"/><br/>
+    <input type="submit" value="GetBookInfoList!" class="btn btn-primary"/><br/>
+</form>
+
 </body>
 </html>

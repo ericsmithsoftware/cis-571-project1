@@ -5,6 +5,33 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="${bestSellerList}" />
+<h1>Book List</h1>
+<br/><br/>
+<div>
+    <ol th:each ="book : ${bookList}">
+        <li th:text="Title: ${book.title} By: ${book.author}"></li>
+    </ol>
+    <div th:if="${bookList.list != null}">
+        <h1>Result</h1>
+        <ul>
+            <th:block th:object="${bookList}">
+                <li th:each="item : *{list}" th:text="${item}">Item description here...</li>
+            </th:block>
+        </ul>
+    </div>
+    <!--
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+        </tr>
+
+        <tr th:each ="book : ${bookList}">
+            <td th:text="${book.title}">...</td>
+            <td th:text="${book.author}">...</td>
+        </tr>
+    </table>-->
+</div>
+<!--<p th:text="${bookList}" />-->
 </body>
 </html>

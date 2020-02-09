@@ -23,10 +23,10 @@ public class NewYorkTimesInvoker {
     @Value("${ny.times.api.key}")
     private String apiKey;
 
-    public ResponseEntity<String> getBestSellerList(String bestSellerList) {
+    public ResponseEntity<String> getBestSellerList(String listName) {
         RestTemplate restTemplate = new RestTemplate();
 
-        final String url = host+basePath+contextPath+bestSellerList;
+        final String url = host+basePath+contextPath+listName;
         System.out.println("URL: " + url);
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(url)
@@ -34,7 +34,6 @@ public class NewYorkTimesInvoker {
 
         System.out.println("Full url: " + builder.build().toUri().toString());
 
-        ResponseEntity<String> response = restTemplate.getForEntity(builder.build().toUri(), String.class);
-        return response;
+        return restTemplate.getForEntity(builder.build().toUri(), String.class);
     }
 }

@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:bk="http://project1.ericss.com/ws">
+<soapenv:Header/>
+<soapenv:Body>
+    <bk:getBooksInfosByTitlesRequest>
+        <bk:titleList>
+            <bk:titles>Becoming</bk:titles>
+        </bk:titleList>
+    </bk:getBooksInfosByTitlesRequest>
+</soapenv:Body>
+</soapenv:Envelope>
