@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="css/bootstrap.css" rel="stylesheet"/>
 </head>
-<body>
+<body style="margin-left:25px">
 <h1>Book List Service</h1>
 <form action="/books/list">
     <div class="form-group mb-2">
@@ -32,30 +32,16 @@
 
 <br/>
 <h1>Book Info Service</h1>
-<!--<form action="/ws/bookInfosList.wsdl" id="bookInfoListForm">
-    <div class="form-group mb-2">
-        <label class="col-form-label-lg">Please a list of book titles (comma separated):</label>
-    </div>
-    <textarea name="bookInfoList" form="bookInfoListForm"></textarea><br/>
-    <button type="submit" class="btn btn-primary mb-2">BookInfoList!</button>
-</form>-->
-
-<!--<form action="/ws/bookInfosList.wsdl/getBooksInfosByTitlesRequest" method="post">
-    <b>WebService WSDL Address : </b>
-    <a href="/ws/bookInfosList.wsdl">/ws/bookInfosList.wsdl</a>
-    <br/><br/>
-    <input type="text" name="bookInfoList" class="form-control"/><br/>
-    <input type="submit" value="GetBookInfoList!" class="btn btn-primary"/><br/>
-</form>-->
-
-<form name="getBookInfoList" action="" method="post">
+<textarea id="getBookInfoList" rows="12" cols="75"></textarea>
+<!--
+<form name="getBookInfoList" action="/ws" method="post">
     <b>WebService WSDL Address : </b>
     <a href="/ws/bookInfosList.wsdl">/ws/bookInfosList.wsdl</a>
     <br/><br/>
     <input type="text" name="bookInfoList" class="form-control"/><br/>
     <div></div>
     <input type="button" class="btn btn-primary" value="Soap" onclick="soap();"/><br/>
-</form>
+</form>-->
 
 </body>
 </html>
