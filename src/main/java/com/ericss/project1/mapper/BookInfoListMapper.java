@@ -10,11 +10,7 @@ import java.util.List;
 
 public final class BookInfoListMapper {
 
-    private static ObjectFactory objectFactory;
-
-    public BookInfoListMapper(){
-        this.objectFactory = new ObjectFactory();
-    }
+    private static ObjectFactory objectFactory  = new ObjectFactory();
 
     public static GetBooksInfosByTitlesResponse map(List<GoodreadsResponse> goodreadsResponseList) {
         GetBooksInfosByTitlesResponse getBooksInfosByTitlesResponse =

@@ -22,17 +22,13 @@ public class BookInfoService {
 
     public GetBooksInfosByTitlesResponse getBookInfoList(List<String> titleList) {
         List<GoodreadsResponse> goodreadsResponseList = new ArrayList<>();
-        /*for(String title : titles){
+        for(String title : titleList){
             ResponseEntity<String> responseEntity = goodreadsInvoker.getBookReview(title);
-            goodreadsResponseList.add(GoodreadsResponseUnmarshaller.unmarshal(responseEntity));
-        }*/
-
-        ResponseEntity<String> responseEntity = goodreadsInvoker.getBookReview(titleList.get(0));
-        GoodreadsResponse goodreadsResponse = GoodreadsResponseUnmarshaller.unmarshal(responseEntity);
-        if(null != goodreadsResponse){
-            goodreadsResponseList.add(goodreadsResponse);
+            GoodreadsResponse goodreadsResponse = GoodreadsResponseUnmarshaller.unmarshal(responseEntity);
+            if(null != goodreadsResponse){
+                goodreadsResponseList.add(goodreadsResponse);
+            }
         }
-
         return BookInfoListMapper.map(goodreadsResponseList);
     }
 

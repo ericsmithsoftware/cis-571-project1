@@ -25,6 +25,6 @@ public class BookInfosEndpoint {
     public GetBooksInfosByTitlesResponse getBooksInfosByTitlesRequest(@RequestPayload GetBooksInfosByTitlesRequest request) {
         GetBooksInfosByTitlesResponse response = bookInfoService.getBookInfoList(request.getTitleList().getTitle());
         //model.addAttribute("bookInfoList", response.getBookList());
-        return new GetBooksInfosByTitlesResponse();
+        return response;
     }
 }
