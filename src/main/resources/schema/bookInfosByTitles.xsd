@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://project1.ericss.com/ws"
-           xmlns:bk="http://project1.ericss.com/ws">
-   <xs:element name="getBooksInfosByTitlesRequest" type="bk:titleList"/>
-   <xs:complexType name="titleList">
-        <xs:sequence maxOccurs="unbounded">
-            <xs:element name="titles" type="xs:string" minOccurs="1"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:element name="getBooksInfosByTitlesResponse">
+           targetNamespace="http://project1.ericss.com/bookInfo"
+           xmlns:bk="http://project1.ericss.com/bookInfo"
+           elementFormDefault="qualified">
+    <xs:element name="GetBooksInfosByTitlesRequest">
         <xs:complexType>
-            <xs:sequence maxOccurs="unbounded">
-                <xs:element name="book" type="bk:book" />
+            <xs:sequence>
+                <xs:element name="titleList" type="bk:titleList" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:complexType name="book">
+    <xs:complexType name="titleList">
+        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="title" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="GetBooksInfosByTitlesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bookList" type="bk:bookList" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="bookList">
         <xs:sequence maxOccurs="unbounded">
+            <xs:element name="bookList" type="bk:book"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="book">
+        <xs:sequence>
             <xs:element name="title" type="xs:string" minOccurs="1"/>
             <xs:element name="author" type="xs:string" minOccurs="1"/>
             <xs:element name="description" type="xs:string" minOccurs="1"/>
-            <xs:element name="review" type="xs:string" minOccurs="1"/>
+            <xs:element name="rating" type="xs:string" minOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

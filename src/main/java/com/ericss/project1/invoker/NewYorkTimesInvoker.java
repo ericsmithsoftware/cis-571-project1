@@ -24,16 +24,11 @@ public class NewYorkTimesInvoker {
     private String apiKey;
 
     public ResponseEntity<String> getBestSellerList(String listName) {
-        RestTemplate restTemplate = new RestTemplate();
-
-        final String url = host+basePath+contextPath+listName;
-        System.out.println("URL: " + url);
+        final String url = host + basePath + contextPath + listName;
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(url)
-            .queryParam(API_KEY, apiKey);
+                .queryParam(API_KEY, apiKey);
 
-        System.out.println("Full url: " + builder.build().toUri().toString());
-
-        return restTemplate.getForEntity(builder.build().toUri(), String.class);
+        return new RestTemplate().getForEntity(builder.build().toUri(), String.class);
     }
 }

@@ -1,11 +1,11 @@
 package com.ericss.project1.api;
 
-import com.ericss.project1.ws.GetBooksInfosByTitlesResponse;
+import com.ericss.project1.bookinfo.GetBooksInfosByTitlesRequest;
+import com.ericss.project1.bookinfo.GetBooksInfosByTitlesResponse;
 import com.ericss.project1.service.BookInfoService;
-import com.ericss.project1.ws.TitleList;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
 import org.springframework.ui.Model;
+import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
@@ -20,11 +20,11 @@ public class BookInfosEndpoint {
         this.bookInfoService = bookInfoService;
     }
 
-    @PayloadRoot(namespace = "http://project1.ericss.com/ws", localPart = "getBooksInfosByTitlesRequest")
+    @PayloadRoot(namespace = "http://project1.ericss.com/bookInfo", localPart = "GetBooksInfosByTitlesRequest")
     @ResponsePayload
-    public GetBooksInfosByTitlesResponse getBooksInfosByTitles(@RequestPayload TitleList titleList, Model model) {
-        GetBooksInfosByTitlesResponse response = bookInfoService.getBookInfoList(titleList.getTitles());
-        model.addAttribute("bookInfoList", response);
-        return response;
+    public GetBooksInfosByTitlesResponse getBooksInfosByTitlesRequest(@RequestPayload GetBooksInfosByTitlesRequest request) {
+        GetBooksInfosByTitlesResponse response = bookInfoService.getBookInfoList(request.getTitleList().getTitle());
+        //model.addAttribute("bookInfoList", response.getBookList());
+        return new GetBooksInfosByTitlesResponse();
     }
 }

@@ -1,9 +1,11 @@
 package com.ericss.project1.service;
 
 import com.ericss.project1.invoker.GoodreadsInvoker;
-import com.ericss.project1.ws.Book;
-import com.ericss.project1.ws.GetBooksInfosByTitlesResponse;
-import com.ericss.project1.ws.ObjectFactory;
+import com.ericss.project1.mapper.BookInfoListMapper;
+import com.ericss.project1.mapper.GoodreadsResponseUnmarshaller;
+import com.ericss.project1.model.goodreads.GoodreadsResponse;
+import com.ericss.project1.bookinfo.GetBooksInfosByTitlesResponse;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,22 +15,25 @@ import java.util.List;
 public class BookInfoService {
 
     private GoodreadsInvoker goodreadsInvoker;
-    private ObjectFactory objectFactory;
 
     public BookInfoService(GoodreadsInvoker goodreadsInvoker){
         this.goodreadsInvoker = goodreadsInvoker;
-        this.objectFactory = new ObjectFactory();
     }
 
-    public GetBooksInfosByTitlesResponse getBookInfoList(List<String> titles) {
-        for(String title : titles){
-            goodreadsInvoker.getBookReview(title);
-        }
-        List<Book> bookList = new ArrayList<>();
-        Book book = new Book();
-        bookList.add(book);
+    public GetBooksInfosByTitlesResponse getBookInfoList(List<String> titleList) {
+        List<GoodreadsResponse> goodreadsResponseList = new ArrayList<>();
+        /*for(String title : titles){
+            ResponseEntity<String> responseEntity = goodreadsInvoker.getBookReview(title);
+            goodreadsResponseList.add(GoodreadsResponseUnmarshaller.unmarshal(responseEntity));
+        }*/
 
-        return objectFactory.createGetBooksInfosByTitlesResponse();
+        ResponseEntity<String> responseEntity = goodreadsInvoker.getBookReview(titleList.get(0));
+        GoodreadsResponse goodreadsResponse = GoodreadsResponseUnmarshaller.unmarshal(responseEntity);
+        if(null != goodreadsResponse){
+            goodreadsResponseList.add(goodreadsResponse);
+        }
+
+        return BookInfoListMapper.map(goodreadsResponseList);
     }
 
 }

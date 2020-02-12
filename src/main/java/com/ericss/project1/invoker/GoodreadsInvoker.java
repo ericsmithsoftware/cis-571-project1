@@ -4,15 +4,16 @@ import com.ericss.project1.validator.InputValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.ericss.project1.constants.ServiceConstants.KEY;
-import static com.ericss.project1.constants.ServiceConstants.TITLE;
+import static com.ericss.project1.constants.ServiceConstants.*;
 
 @Component
 public class GoodreadsInvoker {
@@ -29,14 +30,12 @@ public class GoodreadsInvoker {
     private String key;
 
     public ResponseEntity<String> getBookReview(String title) {
-        RestTemplate restTemplate = new RestTemplate();
-        final String url = host+contextPath;
 
-        Map<String, String> params = new HashMap<>();
-        params.put(TITLE, title);
-        params.put(KEY, key);
+        UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(host+contextPath)
+                .queryParam(KEY, key)
+                .queryParam("title", title);
         LOGGER.debug("Getting book info from Goodreads by title: {}", title);
-        ResponseEntity<String> result = restTemplate.getForEntity(url, String.class, params);
-        return result;
+        return new RestTemplate().getForEntity(builder.build().toUri(), String.class);
+
     }
 }

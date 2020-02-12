@@ -5,6 +5,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="${bookInfoList}" />
+<h1>Book Info List:</h1>
+<ol>
+    <li th:each ="book : ${bookInfoList.getBookList}">
+        <span th:text="'&quot;'+${book.title}+'&quot;'"></span>
+        <span th:text="' - by ' + ${book.author}"></span>
+        <br/>
+        <span th:text="${book.description}"></span>
+        <br/>
+        <span th:text="${book.review}"></span>
+    </li>
+</ol>
+
 </body>
 </html>

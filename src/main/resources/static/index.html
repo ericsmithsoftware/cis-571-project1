@@ -40,12 +40,21 @@
     <button type="submit" class="btn btn-primary mb-2">BookInfoList!</button>
 </form>-->
 
-<form action="/ws/bookInfosList.wsdl/getBooksInfosByTitlesRequest" method="get">
+<!--<form action="/ws/bookInfosList.wsdl/getBooksInfosByTitlesRequest" method="post">
     <b>WebService WSDL Address : </b>
     <a href="/ws/bookInfosList.wsdl">/ws/bookInfosList.wsdl</a>
     <br/><br/>
     <input type="text" name="bookInfoList" class="form-control"/><br/>
     <input type="submit" value="GetBookInfoList!" class="btn btn-primary"/><br/>
+</form>-->
+
+<form name="getBookInfoList" action="" method="post">
+    <b>WebService WSDL Address : </b>
+    <a href="/ws/bookInfosList.wsdl">/ws/bookInfosList.wsdl</a>
+    <br/><br/>
+    <input type="text" name="bookInfoList" class="form-control"/><br/>
+    <div></div>
+    <input type="button" class="btn btn-primary" value="Soap" onclick="soap();"/><br/>
 </form>
 
 </body>

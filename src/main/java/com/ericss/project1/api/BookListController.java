@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@Controller
+//@Controller
 public class BookListController {
-
+/*
     private BookListService bookListService;
 
     @Autowired
@@ -36,5 +36,5 @@ public class BookListController {
         }
         model.addAttribute("bookList", bookList);
         return "bookList";
-    }
+    }*/
 }
