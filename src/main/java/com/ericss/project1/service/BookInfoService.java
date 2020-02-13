@@ -7,6 +7,7 @@ import com.ericss.project1.model.goodreads.GoodreadsResponse;
 import com.ericss.project1.bookinfo.GetBooksInfosByTitlesResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ public class BookInfoService {
         this.goodreadsInvoker = goodreadsInvoker;
     }
 
+    @ModelAttribute("bookInfoList")
     public GetBooksInfosByTitlesResponse getBookInfoList(List<String> titleList) {
         List<GoodreadsResponse> goodreadsResponseList = new ArrayList<>();
         for(String title : titleList){

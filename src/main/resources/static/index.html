@@ -5,49 +5,55 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="css/bootstrap.css" rel="stylesheet"/>
 </head>
-<body style="margin-left:25px">
-<h1>Book List Service</h1>
-<form action="/books/list">
-    <div class="form-group mb-2">
-        <label for="numBooks" class="col-form-label-lg">Please input the number of books:</label>
-        <input type="number" class="form-control-lg" id="numBooks" name="numBooks" value="numBooks" placeholder="Default: 10">
-        <br/>
-        <br/>
-        <label class="col-form-label-lg">Please select some categories:</label><br/>
-        <input type="checkbox" name="listCategories" value="hardcover-fiction"> Fiction<br>
-        <input type="checkbox" name="listCategories" value="hardcover-nonfiction"> Nonfiction<br>
-        <input type="checkbox" name="listCategories" value="hardcover-advice"> Advice<br>
-        <input type="checkbox" name="listCategories" value="paperback-graphic-books"> Graphic Novels<br>
-        <input type="checkbox" name="listCategories" value="young-adult"> Young Adult<br>
-        <input type="checkbox" name="listCategories" value="business-books"> Business<br>
-        <input type="checkbox" name="listCategories" value="food-and-fitness"> Food and Diet<br>
-        <input type="checkbox" name="listCategories" value="sports"> Sports and Fitness<br>
-        <input type="checkbox" name="listCategories" value="humor"> Humor<br>
-        <input type="checkbox" name="listCategories" value="science"> Science<br>
-        <input type="checkbox" name="listCategories" value="travel"> Travel<br>
-    </div>
-    <br/>
-    <button type="submit" class="btn btn-primary mb-2">GetBookList!</button>
-</form>
+<body>
+<div class="container-fluid">
+   <div class="row">
+       <h1>Book List Service</h1>
+   </div>
+   <div class="row">
+       <form action="/books/list">
+           <div class="form-group mb-2">
 
-<br/>
-<h1>Book Info Service</h1>
-<!--
-<form name="getBookInfoList" action="/ws" method="post">
-    <b>WebService WSDL Address : </b>
-    <a href="/ws/bookInfosList.wsdl">/ws/bookInfosList.wsdl</a>
-    <br/><br/>
-    <input type="text" name="bookInfoList" class="form-control"/><br/>
-    <div></div>
-    <input type="button" class="btn btn-primary" value="Soap" onclick="soap();"/><br/>
-</form>-->
-<form name="getBookInfoList" action="/ws" method="post">
-    <div>
-        <textarea id="xmlText" rows="10" cols="75"></textarea>
-        <br/>
-        <input type="button" class="btn btn-primary mb-2" value="Soap" onclick="soap();" />
+               <label for="numBooks" class="col-form-label-lg">Please input the number of books:</label>
+               <input type="number" class="form-control-lg" id="numBooks" name="numBooks" value="numBooks" placeholder="Default: 10">
+               <br/>
+               <label class="col-form-label-lg">Please select some categories:</label><br/>
+               <input type="checkbox" name="listCategories" value="hardcover-fiction"> Fiction<br>
+               <input type="checkbox" name="listCategories" value="hardcover-nonfiction"> Nonfiction<br>
+               <input type="checkbox" name="listCategories" value="hardcover-advice"> Advice<br>
+               <input type="checkbox" name="listCategories" value="paperback-graphic-books"> Graphic Novels<br>
+               <input type="checkbox" name="listCategories" value="young-adult"> Young Adult<br>
+               <input type="checkbox" name="listCategories" value="business-books"> Business<br>
+               <input type="checkbox" name="listCategories" value="food-and-fitness"> Food and Diet<br>
+               <input type="checkbox" name="listCategories" value="sports"> Sports and Fitness<br>
+               <input type="checkbox" name="listCategories" value="humor"> Humor<br>
+               <input type="checkbox" name="listCategories" value="science"> Science<br>
+               <input type="checkbox" name="listCategories" value="travel"> Travel<br>
+           </div>
+           <button type="submit" class="btn btn-primary mb-2">GetBookList!</button>
+       </form>
     </div>
-</form>
+    <div class="row">
+        <h1>Book Info Service</h1>
+        <div class="row">
+            <form name="getBookInfoList" action="/ws" method="post">
+                <div class="row">
+                    <div>
+                        <h3>Request</h3>
+                        <textarea id="xmlText" rows="10" cols="50"></textarea>
+                    </div>
+                    <div>
+                        <h3>Result</h3>
+                        <textarea id="xmlResult" rows="10" cols="50"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="button" class="btn btn-primary mb-2" value="Soap" onclick="soap();" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
     var exampleText= "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
@@ -69,7 +75,8 @@
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4) {
                 if (xmlhttp.status == 200) {
-                    alert(xmlhttp.responseText);
+                    //alert(xmlhttp.responseText);
+                    document.getElementById('xmlResult').innerHTML = xmlhttp.responseText;
                 }
             }
         };

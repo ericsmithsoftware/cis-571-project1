@@ -4,7 +4,6 @@ import com.ericss.project1.bookinfo.GetBooksInfosByTitlesRequest;
 import com.ericss.project1.bookinfo.GetBooksInfosByTitlesResponse;
 import com.ericss.project1.service.BookInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -24,7 +23,6 @@ public class BookInfosEndpoint {
     @ResponsePayload
     public GetBooksInfosByTitlesResponse getBooksInfosByTitlesRequest(@RequestPayload GetBooksInfosByTitlesRequest request) {
         GetBooksInfosByTitlesResponse response = bookInfoService.getBookInfoList(request.getTitleList().getTitle());
-        //model.addAttribute("bookInfoList", response.getBookList());
         return response;
     }
 }
