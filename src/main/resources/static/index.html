@@ -32,7 +32,6 @@
 
 <br/>
 <h1>Book Info Service</h1>
-<textarea id="getBookInfoList" rows="12" cols="75"></textarea>
 <!--
 <form name="getBookInfoList" action="/ws" method="post">
     <b>WebService WSDL Address : </b>
@@ -42,6 +41,41 @@
     <div></div>
     <input type="button" class="btn btn-primary" value="Soap" onclick="soap();"/><br/>
 </form>-->
+<form name="getBookInfoList" action="/ws" method="post">
+    <div>
+        <textarea id="xmlText" rows="10" cols="75"></textarea>
+        <br/>
+        <input type="button" class="btn btn-primary mb-2" value="Soap" onclick="soap();" />
+    </div>
+</form>
 
+<script type="text/javascript">
+    var exampleText= "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+        "    <Body>\n" +
+        "        <GetBooksInfosByTitlesRequest xmlns=\"http://project1.ericss.com/bookInfo\">\n" +
+        "            <titleList>\n" +
+        "                <title>Becoming</title>\n" +
+        "            </titleList>\n" +
+        "        </GetBooksInfosByTitlesRequest>\n" +
+        "    </Body>\n" +
+        "</Envelope>";
+    document.getElementById('xmlText').innerHTML = exampleText;
+</script>
+<script type="text/javascript">
+    function soap() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open('POST', 'http://localhost:8080/ws', true);
+        var xml = document.getElementById("xmlText").value;
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4) {
+                if (xmlhttp.status == 200) {
+                    alert(xmlhttp.responseText);
+                }
+            }
+        };
+        xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+        xmlhttp.send(xml);
+    };
+</script>
 </body>
 </html>
