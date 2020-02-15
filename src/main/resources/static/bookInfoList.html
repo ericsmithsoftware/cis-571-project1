@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>GetBooksInfosByTitlesRequest</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+</head>
+    <body>
+        <div id="navbar"></div>
+        <div class="container">
+            <div class="row mb-2">
+                <h3>Book Info Service (SOAP)</h3>
+            </div>
+            <div class="row mb-3">
+                <form name="getBookInfoList" action="/ws" method="post">
+                    <div class="d-flex justify-content-center mb-3">
+                        <div>
+                            <h5>Request</h5>
+                            <textarea class="form-control" id="xmlText" rows="15" cols="50"></textarea>
+                        </div>
+                    </div>
+                    <input type="button" class="btn btn-primary mb-3" value="GetBookInfoList" onclick="invokeSoap();" />
+                </form>
+            </div>
+            <div class="row" id="bookInfoResultDiv">
+
+            </div>
+        </div>
+        <div id="footer"></div>
+        <script type="text/javascript" src="js/soapCall.js"></script>
+        <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+        <script>
+            $(function(){
+                $("#navbar").load("navbar.html");
+            });
+        </script>
+        <script>
+            $(function(){
+                $("#footer").load("footer.html");
+            });
+        </script>
+    </body>
+</html>

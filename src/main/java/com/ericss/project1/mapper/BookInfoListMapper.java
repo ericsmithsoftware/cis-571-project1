@@ -30,7 +30,7 @@ public final class BookInfoListMapper {
             if(null != goodreadsResponse.getBook()){
                 com.ericss.project1.model.goodreads.Book goodReadsBook = goodreadsResponse.getBook();
                 Book book = createBook(goodReadsBook);
-                bookList.getBookList().add(book);
+                bookList.getBook().add(book);
             }
         }
     }

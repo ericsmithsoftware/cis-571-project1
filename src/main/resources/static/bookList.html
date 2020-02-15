@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>GetBookList</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="css/bootstrap.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div id="navbar"></div>
+        <div class="container">
+            <div class="row mb-2">
+                <h3>Book List Service (REST)</h3>
+            </div>
+            <div class="row">
+                <form action="/books/list">
+                    <div class="form-group">
+                        <label for="numBooks" class="col-form-label-md mb-3">Please input the number of books:</label>
+                        <input type="number" class="form-control-md" id="numBooks" name="numBooks" value="numBooks" placeholder="Number of Books">
+                        <div class="mb-3">
+                            <label class="col-form-label-md">Please select some categories:</label><br/>
+                            <input type="checkbox" name="listCategories" value="hardcover-fiction"> Fiction<br>
+                            <input type="checkbox" name="listCategories" value="hardcover-nonfiction"> Nonfiction<br>
+                            <input type="checkbox" name="listCategories" value="hardcover-advice"> Advice<br>
+                            <input type="checkbox" name="listCategories" value="paperback-graphic-books"> Graphic Novels<br>
+                            <input type="checkbox" name="listCategories" value="young-adult"> Young Adult<br>
+                            <input type="checkbox" name="listCategories" value="business-books"> Business<br>
+                            <input type="checkbox" name="listCategories" value="food-and-fitness"> Food and Diet<br>
+                            <input type="checkbox" name="listCategories" value="sports"> Sports and Fitness<br>
+                            <input type="checkbox" name="listCategories" value="humor"> Humor<br>
+                            <input type="checkbox" name="listCategories" value="science"> Science<br>
+                            <input type="checkbox" name="listCategories" value="travel"> Travel<br>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-4">GetBookList!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="footer"></div>
+        <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+        <script>
+            $(function(){
+                $("#navbar").load("navbar.html");
+            });
+        </script>
+        <script>
+            $(function(){
+                $("#footer").load("footer.html");
+            });
+        </script>
+    </body>
+</html>

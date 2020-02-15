@@ -25,7 +25,7 @@
     </xs:element>
     <xs:complexType name="bookList">
         <xs:sequence maxOccurs="unbounded">
-            <xs:element name="bookList" type="bk:book"/>
+            <xs:element name="book" type="bk:book"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="book">
