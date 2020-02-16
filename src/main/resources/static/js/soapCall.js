@@ -1,25 +1,24 @@
 function invokeSoap() {
-    var xmlhttp = new XMLHttpRequest();
+    let xmlhttp = new XMLHttpRequest();
     xmlhttp.open('POST', 'http://localhost:8080/ws', true);
-    var xml = document.getElementById("xmlText").value;
+    let xml = document.getElementById("xmlText").value;
     xmlhttp.onreadystatechange = function () {
+
         if (xmlhttp.readyState == 4) {
             if (xmlhttp.status == 200) {
                 createResultHeader();
 
                 console.log(xmlhttp.responseText)
-                //alert(xmlhttp.responseText);
-                //document.getElementById('xmlResult').innerHTML = xmlhttp.responseText;
-                var xmlDoc = $.parseXML(xmlhttp.responseText);
+                let xmlDoc = $.parseXML(xmlhttp.responseText);
 
-                var jqObj = $(xmlDoc);
+                let jqObj = $(xmlDoc);
                 jqObj.find('ns2\\:book').each(function(index){
                     let title = $(this).find('ns2\\:title').text();
                     let author = $(this).find('ns2\\:author').text();
                     let description = $(this).find('ns2\\:description').text();
                     let rating = $(this).find('ns2\\:rating').text();
 
-                    var h4 = document.createElement("h4");
+                    let h4 = document.createElement("h4");
                     h4.setAttribute("class", "mb-2");
                     h4.append(document.createTextNode("Result " + parseInt(index+1, 10)));
 
@@ -42,11 +41,12 @@ function invokeSoap() {
 
 
 function defaultRequest(){
-    var exampleText= "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+    let exampleText= "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
         "    <Body>\n" +
         "        <GetBooksInfosByTitlesRequest xmlns=\"http://project1.ericss.com/bookInfo\">\n" +
         "            <titleList>\n" +
         "                <title>The Way of Kings</title>\n" +
+        "                <title>12 Rules For Life</title>\n" +
         "            </titleList>\n" +
         "        </GetBooksInfosByTitlesRequest>\n" +
         "    </Body>\n" +
@@ -55,11 +55,11 @@ function defaultRequest(){
 };
 
 function createResultHeader(){
-    var h2 = document.createElement("h2");
+    let h2 = document.createElement("h2");
     h2.setAttribute("class", "mb-3");
     h2.append(document.createTextNode("Results"));
 
-    var resultDiv = document.createElement("div");
+    let resultDiv = document.createElement("div");
     resultDiv.setAttribute("id", "bookInfoResults");
     document.getElementById("bookInfoResultDiv").appendChild(h2);
     document.getElementById("bookInfoResultDiv").appendChild(resultDiv);

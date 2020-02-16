@@ -1,16 +1,49 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Book Reading List</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-<h1>Book List:</h1>
-<ol>
-    <li th:each ="book : ${bookList}">
-        <span th:text="'&quot;'+${book.title}+'&quot;'"></span>
-        <span th:text="' - by ' + ${book.author}"></span>
-    </li>
-</ol>
-</body>
+    <head>
+        <title>Book Reading List</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link href="../css/bootstrap.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="jumbotron jumbotron-fluid" style="padding-top:0px; padding-bottom:0px; margin-bottom:10px;">
+            <img class="img-fluid" src="../images/stanislav-kondratiev-6pO3QFkk7hQ-unsplash-edited.jpg"/>
+        </div>
+        <div class="container">
+            <div>
+                <header class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12 pt-8">
+                            <div class="col-md-offset-1 a">
+                                <ul class="list-inline text-center">
+                                    <li class="list-inline-item pr-4 pl-3 border-right text-dark"><a href="../index.html">Home</a></li>
+                                    <li class="list-inline-item pr-4 pl-3 border-right text-dark"><a href="../bookList.html">Get A Book List</a></li>
+                                    <li class="list-inline-item pr-4 pl-3 text-dark"><a href="../bookInfoList.html">Get Book(s) Info</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <div class="row mb-2">
+                <h3>Book List Result</h3>
+            </div>
+            <div class="row mb-2">
+                <ol>
+                    <li th:each ="book : ${bookList}">
+                        <span th:text="'&quot;'+${book.title}+'&quot;'"></span>
+                        <span th:text="' - by ' + ${book.author}"></span>
+                    </li>
+                </ol>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-12 text-center pt-2">
+                        <p class="text-sm text-muted credit">Photo by Stanislav Kondratiev on Unsplash</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
 </html>
