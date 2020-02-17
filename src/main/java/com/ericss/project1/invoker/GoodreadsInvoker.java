@@ -1,6 +1,5 @@
 package com.ericss.project1.invoker;
 
-import com.ericss.project1.validator.InputValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,11 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.ericss.project1.constants.ServiceConstants.*;
+import static com.ericss.project1.constants.ServiceConstants.KEY;
 
 @Component
 public class GoodreadsInvoker {

@@ -11,10 +11,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "author",
 })
 public class Book {
+
     @JsonProperty("rank")
     private Long rank;
+
     @JsonProperty("title")
     private String title;
+
     @JsonProperty("author")
     private String author;
 
