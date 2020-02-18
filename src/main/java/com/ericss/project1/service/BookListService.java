@@ -26,7 +26,7 @@ public class BookListService {
     }
 
     public List<Book> getBookList(Integer numBooks, List<String> listNames) {
-        List<BestSellerList> bestSellerResultLists = populateBestSellerListResults(listNames);
+        List<BestSellerList> bestSellerResultLists = getBestSellerListResults(listNames);
         numBooks = updateNumBooksIfNotEnough(numBooks, bestSellerResultLists);
         return createBookListFromResults(numBooks, bestSellerResultLists);
     }
@@ -38,7 +38,6 @@ public class BookListService {
         int bookIndex = 0;
         while(i < numBooks){
             int listIndex = i%numLists;
-            LOGGER.debug("List: {} - {}", listIndex, bookIndex);
             bookList.add(getBook(bestSellerResultLists.get(i%numLists), bookIndex));
             i++;
             if(listIndex == numLists-1){
@@ -66,7 +65,7 @@ public class BookListService {
         return new Book(listBook.getTitle(), listBook.getAuthor());
     }
 
-    private List<BestSellerList> populateBestSellerListResults(List<String> listNames) {
+    private List<BestSellerList> getBestSellerListResults(List<String> listNames) {
         List<BestSellerList> bestSellerResultLists = new ArrayList<>();
         for(String listName : listNames){
             LOGGER.debug("Category: {}", listName);

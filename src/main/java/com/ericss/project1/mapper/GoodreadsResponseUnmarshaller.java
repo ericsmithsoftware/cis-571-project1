@@ -17,12 +17,12 @@ public class GoodreadsResponseUnmarshaller {
         xmlMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         xmlMapper.setDefaultUseWrapper(false);
         if(null != responseEntity && null != responseEntity.getBody()){
-            return mapBookInfoList(responseEntity);
+            return unmarshalBookList(responseEntity);
         }
         return null;
     }
 
-    private static GoodreadsResponse mapBookInfoList(ResponseEntity<String> responseEntity) {
+    private static GoodreadsResponse unmarshalBookList(ResponseEntity<String> responseEntity) {
         GoodreadsResponse goodreadsResponse = null;
         try {
             goodreadsResponse = xmlMapper.readValue(responseEntity.getBody(), GoodreadsResponse.class);
